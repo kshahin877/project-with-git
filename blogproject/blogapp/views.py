@@ -1,4 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,get_object_or_404
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
 
 # Create your views here.
 def index(request):
@@ -27,4 +31,23 @@ def contact(request):
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect("index")
+    else:
+        if request.method=="POST":
+            username=request.POST.get('usernamefield')
+            password=request.POST.get('passfield')
+            auth=authenticate(request,username=username,password=password)
+            if auth is not None:
+                auth_login(request,auth)
+                return redirect('index')
+
+
     return render(request,'blogapp/login.html')
+
+
+
+
+def logout(request):
+    auth_logout(request)
+    return redirect('index')
