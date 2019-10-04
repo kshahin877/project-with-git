@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.utils import timezone
 # Create your models here.
 
 
@@ -26,6 +26,8 @@ class Post(models.Model):
     description=models.TextField(blank=False)
     author=models.ForeignKey(Author,on_delete=models.CASCADE)
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
+    date=timezone.now()
+    image=models.ImageField(upload_to='photo')
 
     def __str__(self):
         return self.title

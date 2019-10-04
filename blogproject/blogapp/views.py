@@ -4,10 +4,14 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
+from . models import Post
+
 
 # Create your views here.
 def index(request):
-    return render(request,'blogapp/index.html')
+    post=Post.objects.all()
+
+    return render(request,'blogapp/index.html',{'post':post})
 
 
 
