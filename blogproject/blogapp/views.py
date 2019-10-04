@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -39,6 +40,7 @@ def login(request):
             password=request.POST.get('passfield')
             auth=authenticate(request,username=username,password=password)
             if auth is not None:
+                messages.add_message(request, messages.SUCCESS, 'You have successfully Loged in .You can create Post' )
                 auth_login(request,auth)
                 return redirect('index')
 
@@ -50,4 +52,5 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
+    messages.add_message(request, messages.SUCCESS, 'You have successfully Loged out' )
     return redirect('index')

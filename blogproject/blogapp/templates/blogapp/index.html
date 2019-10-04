@@ -3,6 +3,19 @@
 {% block title %}projapati home{% endblock %}
 {% block stylesheet %}{% endblock %}
 {% block content %}
+
+{% if messages %}
+    <div class="container font-italic">
+      <div class="row">
+        <ul class="messages">
+            {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }} h3"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+      </div>  
+    </div>
+{% endif %}
+
 <main class="site-main">
       <!--================Hero Banner start =================-->
       <section class="mb-30px">
