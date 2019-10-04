@@ -35,8 +35,39 @@
                 <li class="nav-item active"><a class="nav-link" href="{% url 'index'%}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'archive'%}">Archive</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'category'%}">Category</a>
+
+
+                  <!-- Log in methode with logout system -->
                 {% if user.is_authenticated %}
-                  <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                  <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#myModal" href="#">Logout</a></li>
+
+           <!--   the popup model is going hare  -->
+             <!-- The Modal -->
+                  <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                      
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">Are you Want to Logout ? </h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+        
+                  <!-- Modal footer -->
+                <div class="modal-footer">
+                <li class="border border-warning h2 bg-success text-dark px-3 py-3 rounded-circle"><a href="{% url 'logout' %}">Yes</a></li>
+
+
+                <li class="border border-warning h2 bg-success text-light px-3 py-3 rounded-circle" data-dismiss="modal">No</li>
+              </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
                 {% else %}
                   <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                 {% endif %}
