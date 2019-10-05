@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
@@ -10,6 +11,9 @@ from . models import Post
 # Create your views here.
 def index(request):
     post=Post.objects.all()
+    paginator = Paginator(post,2)
+    page = request.GET.get('page')
+    post = paginator.get_page(page)
 
     return render(request,'blogapp/index.html',{'post':post})
 
