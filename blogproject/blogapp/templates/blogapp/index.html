@@ -115,7 +115,7 @@
               <div class="thumb">
                 <a href="{% url 'single' id=p.id %}"><img class="img-fluid" src="{{p.image.url}}" alt="{{p.title}}"></a>
                 <ul class="thumb-info">
-                  <li><a href="#"><i class="ti-user"></i>Admin</a></li>
+                  <li><a href="#"><i class="ti-user"></i>{{p.author.name}}</a></li>
                   <li><a href="#"><i class="ti-notepad"></i>{{p.date|date:"SHORT_DATE_FORMAT" }}</a></li>
                   <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
                 </ul>
