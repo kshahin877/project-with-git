@@ -1,0 +1,46 @@
+{% extends 'blogapp/base.html' %}
+{% block title %}projapati{% endblock %}
+
+
+{% block stylesheet %}
+<!-- start your stylesheet -->
+{% endblock %}
+
+
+{% block content %}
+<!-- start your body tag -->
+<section class="blog-post-area section-margin mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-6">
+            <div class="single-recent-blog-post">
+              <div class="thumb">
+                <img class="img-fluid" src="{{post.image.url}}" alt="{{post.title}}">
+                <ul class="thumb-info">
+                  <li><a href="#"><i class="ti-user"></i>{{post.author.name}}</a></li>
+                  <li><a href="#"><i class="ti-notepad"></i>{{post.date}}</a></li>
+                  <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
+                </ul>
+                 </div>
+
+              <div class="details mt-20">
+                <h3 class="text-muted justify-content-lg-center-center">{{post.title}}</h3>
+                <p class="text-muted justify-content-lg-center">{{post.description}}</p>
+                
+                <p class="tag-list-inline mt-lg-5">Tag: <a class="btn btn-secondary rounded-3 text-light" href="#">travel</a>, <a class="btn btn-secondary rounded-3 text-light" href="#">life style</a>, <a class="btn btn-secondary rounded-3 text-light" href="#">technology</a>, <a class="btn btn-secondary rounded-3 text-light" href="#">fashion</a></p>
+              </div>
+            </div>
+           
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
+
+{% block script %}
+<!-- start your script -->
+{% endblock %}

@@ -10,6 +10,7 @@ urlpatterns=[
     path('contact',views.contact,name='contact'),
     path('login',views.login,name='login'),
     path('logout',views.logout,name='logout'),
+    path('article/<int:id>',views.single,name='single'),
     
 
 
